@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang = "en">
+    
+    <head>
+        <link rel="stylesheet" href="home.css">
+        <title>GuideSpace</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+    </head>
+    
+    <body>
+        <header>
+            <nav>
+                <div class="row">
+                    <img src="SNS_Logo.png" alt="Telehealth Logo" class="logo">
+                    <ul class="main-nav">
+                        <li><a href="#" id="login">LOGIN</a></li>
+                        <li><a href="#" id="signup">SIGN UP</a></li>
+                    </ul>
+                    <div class="drop-down-login">
+                        <a href="/studentlogin">As Student</a>
+                        <a href="/lecturerlogin">As Lecturer</a>
+                    </div>
+                    <div class="drop-down-signup">
+                        <a href="/studentsignup">As Student</a>
+                        <a href="/lecturersignup">As Lecturer</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="hero-text-box">
+                <h1>GuideSpace</h1>
+                <h2>connecting minds, guiding growth</h2>
+                <a class="btn button-full" href="/readmore">Read more</a>
+            </div>
+        </header>
+        
+        <script>
+            let loginBtn = document.getElementById('login');
+let signupBtn = document.getElementById('signup');
+let dropLogin = document.querySelector('.drop-down-login');
+let dropSignup = document.querySelector('.drop-down-signup');
+
+// Toggle the display of the dropdown menu on login button click
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle the display of the dropdown menu on login button click
+    loginBtn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+        
+        // Toggle the visibility of the dropdown
+        if (dropLogin.style.visibility === 'visible') {
+            dropLogin.style.visibility = 'hidden';
+        } else {
+            dropLogin.style.visibility = 'visible';
+        }
+    });
+    
+    // Optional: Close the dropdown if clicked outside of it
+    document.addEventListener('click', function(event) {
+        if (!loginBtn.contains(event.target) && !dropLogin.contains(event.target)) {
+            dropLogin.style.visibility = 'hidden';
+        }
+    });
+});
+
+// Toggle the display of the dropdown menu on login button click
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle the display of the dropdown menu on login button click
+    signupBtn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+        
+        // Toggle the visibility of the dropdown
+        if (dropSignup.style.visibility === 'visible') {
+            dropSignup.style.visibility = 'hidden';
+        } else {
+            dropSignup.style.visibility = 'visible';
+        }
+    });
+    
+    // Optional: Close the dropdown if clicked outside of it
+    document.addEventListener('click', function(event) {
+        if (!signupBtn.contains(event.target) && !dropSignup.contains(event.target)) {
+            dropSignup.style.visibility = 'hidden';
+        }
+    });
+});
+
+        </script>
+    </body>
+</html>

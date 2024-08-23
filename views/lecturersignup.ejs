@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Sign Up</title>
+    <link rel="stylesheet" href="lecturersignup.css">
+</head>
+<body>
+    <div class="back-arrow">
+        <img src="back-arrow.png" alt="">
+    </div>
+    <div class="container">
+        <div class="signup-form">
+            <h2>Sign Up</h2>
+            <form action="/lecturersignup" method="post" >
+                <input type="text" placeholder="Fullname" name="Fullname" required>
+                <input type="text" placeholder="Staff ID" name="StaffID" required>
+                <input type="password" placeholder="Password" name="Password" required>
+                <input type="password" placeholder="ConfirmPassword" name="ConfirmPassword" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>already have an account? <a href="lecturerlogin">login</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const fullnameInput = form.querySelector('input[placeholder="Fullname"]');
+    const staffIDInput = form.querySelector('input[placeholder="Staff ID"]');
+    const passwordInput = form.querySelector('input[placeholder="Password"]');
+    const confirmPasswordInput = form.querySelector('input[placeholder="Confirm Password"]');
+
+    form.addEventListener("submit", function (event) {
+        let valid = true;
+        let errorMessage = "";
+
+        // Fullname validation
+        if (fullnameInput.value.trim() === "") {
+            errorMessage += "Fullname is required.\n";
+            valid = false;
+        }
+
+        // Staff ID validation
+        if (staffIDInput.value.trim() === "") {
+            errorMessage += "Staff ID is required.\n";
+            valid = false;
+        }
+
+        // Password validation
+        if (passwordInput.value.length < 8) {
+            errorMessage += "Password must be at least 8 characters long.\n";
+            valid = false;
+        }
+
+        // Confirm password validation
+        if (confirmPasswordInput.value !== passwordInput.value) {
+            errorMessage += "Passwords do not match.\n";
+            valid = false;
+        }
+
+        if (!valid) {
+            alert(errorMessage);
+            event.preventDefault(); // Prevent the form from submitting if validation fails
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

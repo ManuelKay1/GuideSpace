@@ -1,0 +1,26 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+}
+
+/* .app-logo{
+    w
+} */
+
+.read-message{
+    padding-top: 40px;
+}
+
+.read-message p{
+    font-size: 30px;
+    letter-spacing: 2px;
+    line-height: 2;
+}

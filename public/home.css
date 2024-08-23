@@ -1,0 +1,393 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+*:focus { outline: none; }
+
+/*  Basic styling 
+	============================================================= */ 
+html,
+body {
+	background-color: #fff;
+	color: #555;
+	font-family: 'Lato', 'Arial', sans-serif;
+	font-size: 20px;
+	font-weight: 300;
+	/* Renders text clean */
+	text-rendering: optimizeLegibility;
+}
+
+.row {
+	max-width: 1140px;  /* fixed width for all rows */
+	margin: 0 auto; /* center content*/
+}
+
+section { padding: 80px 0px; }
+
+h1 {
+	margin-bottom: 5px;
+	color: #fff;
+	font-size: 230%;
+    letter-spacing: 1px;
+}
+
+h2 {
+	font-size: 140%;
+	margin-bottom: 15px;
+    word-spacing: 3px;
+	letter-spacing: 1px;
+    font-weight: 300;
+    color: #fff;
+	font-style: italic;
+}
+
+/* Icons
+   ===================================*/
+   .icon-big {
+	font-size: 3.5em;
+	display: block;
+	color: #3498db;
+	margin-bottom: 10px;
+	margin-right: 25px; 
+	text-align: center;
+}
+
+/* Button Normal State 
+   ====================================*/
+.btn:link, 
+.btn:visited,
+input[type="submit"] {
+	display: inline-block;
+	padding: 10px 30px;
+	font-size: inherit;
+	font-weight: 300;
+	text-decoration: none;
+	border-radius: 200px;
+	border: 2px solid #3498db;
+	/* Transition the background, color, border by 0.2s*/
+	transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.button-full:link,
+.button-full:visited,
+input[type="submit"] {
+	background-color: #2487c9;
+	color: #fff;
+	font-weight: 400;
+	margin-right: 15px;
+}
+
+.button-ghost:link,
+.button-ghost:visited { color: #2487c9; }
+
+
+/* Button Hover state, and clicked state
+   ========================================*/
+.btn:hover,
+.btn:active,
+input[type="submit"]:hover,
+input[type="submit"]:active { background-color: #1f74ac; }
+
+.button-full:hover,
+.button-full:active,
+input[type="submit"]:hover,
+input[type="submit"]:active { border: 2px solid #1f74ac; }
+
+.button-ghost:hover,
+.button-ghost:active {
+	color: #fff;
+	border: 2px solid #2487c9;
+}
+
+
+/* Header styles
+   ==========================================*/
+header {
+	background-image: url(homepage.png);
+	background-size: cover;
+	background-position: center;
+	height: 100vh; /* 100% of the viewport's height */
+}
+
+.hero-text-box {
+	position: absolute; /* We want to vertically & horizontally center content */
+	width: 1140px;
+	top: 50%;
+	left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Logo & Navigation section
+   ================================*/
+.logo{
+	height:100px;
+	width: auto;
+	float: left;
+	margin-top: 30px;
+}
+
+.main-nav {
+	float: right;
+	list-style: none;
+	margin-top: 80px;
+}
+
+.drop-down-login{
+	position: absolute;
+	top: 110px;
+	right: 460px;
+	width: 140px;
+	height: 80px;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	background-color: #fff;
+	visibility: hidden;
+	/* border: 2px solid red; */
+}
+
+.drop-down-signup{
+	position: absolute;
+	top: 110px;
+	right: 280px;
+	width: 140px;
+	height: 80px;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	background-color: #fff;
+	visibility: hidden;
+	/* border: 2px solid red; */
+}
+
+.drop-down-login a, .drop-down-signup a{
+	text-decoration: none;
+	color: #000;
+	font-weight: 500;	
+}
+
+.drop-down-login a:hover, .drop-down-signup a:hover{
+	color: #1f74ac;
+}
+
+.main-nav li {
+	display: inline-block;
+	margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+	padding: 8px 0;
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 100%;
+	font-weight: 500;
+	border-bottom: 2px solid transparent; /* We want border exist before hover, but not yet visible.*/
+	transition: border-bottom 0.2s;
+}
+
+
+.main-nav li a:hover,
+.main-nav li a:active {
+	border-bottom: 2px solid #3498db; /* Visible on hover */
+}
+
+/* h3 {
+	font-size: 160%;
+	word-spacing: 2px;
+	text-align: center;
+	margin-bottom: 30px;
+	letter-spacing: 1px; 
+    font-weight: 300;
+} */
+
+/* Line divide (yellow)
+   ==================================*/
+/* h3:after {
+	display: block;
+	height: 2px;
+	background-color: #3498db;
+	content: ""; 
+	width: 100px;
+	margin: 0 auto; 
+	margin-top: 30px;
+
+} */
+
+/* Copy
+   ===================================*/
+/* .long-copy {
+	line-height: 1.5;
+	width: 70%;
+	margin-left: 15%; 
+	margin-right: 15%;
+	text-align: center; 
+	margin-bottom: 30px;
+} */
+
+/* .box { padding: 1%; }
+
+.box p {
+	font-size: 0.9em;
+	line-height: 1.45;
+
+} */
+
+/* Links
+   ===================================*/
+/* a:link,
+a:visited {
+	color: #e67e22;
+	text-decoration: none;
+	border-bottom: 1px solid #3498db;
+	padding-bottom: 1px;
+	transition: border-bottom 0.2s, color 0.2s
+}
+
+a:hover,
+a:active {
+	color: #555;
+	border-bottom: 1px solid transparent;
+} */
+
+
+
+
+
+/* Sticky Navigation
+=============================== */
+/* .sticky {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.98);
+	box-shadow: 0 1px 2px #efefef;
+	z-index: 10;
+	transition: all 0.5s ease;
+}
+
+.sticky .main-nav {
+	margin-top: 18px;
+} */
+
+/* .sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+	padding: 16px 0;
+	color: #555;
+}
+
+.sticky .logo {
+	display: none;
+}
+.sticky .logo-black {
+	display: block;
+} */
+
+
+
+/* How it works section
+   ====================================*/
+/* .section-application {
+	background-color: #f4f4f4;
+}
+
+.steps-box:first-child {
+	text-align: right; 
+	padding-right: 3%; 
+	margin-top: 30px;
+}
+
+.steps-box:last-child {
+	padding-left: 3%;
+	margin-top: 70px;
+}
+
+.app-screen { width: 40%; }
+
+.works-step { margin-bottom: 50px; }
+
+.works-step:last-of-type{ 
+	margin-bottom: 80px;
+}
+
+.works-step div {
+	color: #3498db;
+	border: 2px solid #3498db;
+	display: inline-block; 
+	border-radius: 50%;
+	height: 55px;
+	width: 55px;
+	text-align: center;
+	padding: 5px;
+	float: left; 
+	font-size: 1.5em;
+	margin-right: 25px;
+}
+
+.button-app:link,
+.button-app:visited { border: 0; }
+
+.button-app img {
+	height: 50px;
+	width: auto;
+	margin-right: 15px;
+} */
+
+
+
+/* Form section
+   ===========================================*/
+/* .section-form {
+	width: 90%;
+	margin: 0 auto;
+}
+
+input[placeholder],
+input[type="submit"], 
+textarea[placeholder],
+select
+{
+	font-family: inherit;
+	font-size: 0.9em;
+	font-weight: 300;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+	width: 100%;
+	padding: 7px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}
+
+textarea { height: 100px; }
+
+input[type="checkbox"] { margin: 10px 5px 10px 0; }
+
+
+.form-box {
+	position: absolute;
+	width: 50%;
+	top: 0;
+	right: 0;
+	background-color: rgba(255, 255, 255, 0.8);
+	z-index: 2;
+	height: 530px;
+	padding: 40px 20px 0 30px;
+}
+
+.form-box h2 {
+	font-size: 1.6em;
+} */
+

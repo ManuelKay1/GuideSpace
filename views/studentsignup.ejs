@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Sign Up</title>
+    <link rel="stylesheet" href="studentsignup.css">
+</head>
+<body>
+    <div class="back-arrow">
+        <img src="back-arrow.png" alt="">
+    </div>
+    <div class="container">
+        <div class="signup-form">
+            <h2>Sign Up</h2>
+            <form action="/studentsignup" method="post">
+                <input type="text" placeholder="Username" name="Username" required>
+                <input type="password" placeholder="Password" name="Password" required>
+                <input type="password" placeholder="Confirm Password" name="ConfirmPassword" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>already have an account? <a href="/studentlogin">login</a></p>
+        </div>
+    </div>
+</body>
+
+<script>document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    const usernameInput = form.querySelector('input[placeholder="Username"]');
+    const passwordInput = form.querySelector('input[placeholder="Password"]');
+    const confirmPasswordInput = form.querySelector('input[placeholder="Confirm Password"]');
+
+    form.addEventListener("submit", function (event) {
+        let valid = true;
+        let errorMessage = "";
+
+        // Username validation
+        if (usernameInput.value.trim() === "") {
+            errorMessage += "Username is required.\n";
+            valid = false;
+        }
+
+        // Password validation
+        if (passwordInput.value.length < 8) {
+            errorMessage += "Password must be at least 8 characters long.\n";
+            valid = false;
+        }
+
+        // Confirm password validation
+        if (confirmPasswordInput.value !== passwordInput.value) {
+            errorMessage += "Passwords do not match.\n";
+            valid = false;
+        }
+
+        if (!valid) {
+            alert(errorMessage);
+            event.preventDefault(); // Prevent the form from submitting if validation fails
+        }
+    });
+});
+</script>
+</html>
