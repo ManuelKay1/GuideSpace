@@ -3,20 +3,21 @@ const  mongoose  = require('mongoose');
 const Student = require('./models/Student');
 const Lecturer = require('./models/Lecturer'); 
 const app = express();
+require('dotenv').config();
 
 app.use(express.static('public'))
 
 app.use(express.urlencoded({ extended: true }))
 
-const dbURI="mongodb+srv://KwameAcquah:Business20b@cluster0.s2ii5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-mongoose.connect(dbURI)
-  .then(() => {
-    console.log('Connected to database');
-  })
-  .catch((err) => {
-    console.error('Error connecting to db:', err);
-  });
+const mongoURI = process.env.MONGO_URI;
+
+mongoose.connect(dbURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected'))
+.catch((err) => console.log(err));
 
 app.set('view engine','ejs')
 
