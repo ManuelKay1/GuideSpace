@@ -1,7 +1,9 @@
 const express = require('express');
 const  mongoose  = require('mongoose');
+const bodyParser = require('body-parser');
 const Student = require('./models/Student');
 const Lecturer = require('./models/Lecturer'); 
+const bcrypt = require('bcrypt');
 const app = express();
 require('dotenv').config();
 
@@ -88,6 +90,33 @@ app.get('/studentlogin',(req,res)=>{
     res.render('studentlogin')
 })
 
+
+app.post('/studentlogin', async (req, res) => {
+    try {
+        const { Username, Password } = req.body;
+
+        
+        const student = await Student.findOne({ username: Username.trim() });
+        if (!student) {
+            return res.status(400).send('Invalid Username or Password');
+        }
+
+        
+        const isMatch = await bcrypt.compare(Password, student.password);
+        if (!isMatch) {
+            return res.status(400).send('Invalid Username or Password');
+        }
+
+        
+        res.redirect('/studentdashboard');
+    } catch (error) {
+        console.error('Error during student login:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
+
 app.get('/studentsignup',(req,res)=>{
     res.render('studentsignup')
 })
@@ -124,6 +153,10 @@ app.get('/readmore',(req,res)=>{
 
 app.get('/lecturerdashboard',(req,res)=>{
     res.render('lecturerdashboard')
+})
+
+app.get('/studentdashboard',(req,res)=>{
+    res.render('studentdashboard')
 })
 
 app.listen(3000, console.log('listening to request on port 3000'))
